@@ -11,5 +11,8 @@ describe('enhancer.js', () => {
         it(' should increase enhancement by 1', () => {
             expect(succeed({ enhancement: 17}).enhancement).toBe(18);
         })
+        it('should only increase enhancement if lower than 20', () => {
+            expect(succeed({ enhancement:19}).enhancement).toBe(20);
+        })
     })
 })
