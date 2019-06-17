@@ -3,7 +3,7 @@ module.exports = {
   fail,
   repair,
   get,
-};
+};  
 
 function succeed(item) {
  if(item.enhancement < 20){
@@ -15,7 +15,11 @@ function succeed(item) {
 }
 
 function fail(item) {
-  return { ...item };
+  if(item.enhancement < 15){
+    return {...item, durability: item.durability -5}
+  } else{
+    return item
+  }
 }
 
 function repair(item) {

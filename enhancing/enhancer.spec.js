@@ -15,4 +15,21 @@ describe('enhancer.js', () => {
             expect(succeed({ enhancement:19}).enhancement).toBe(20);
         })
     })
+
+    describe('fail()', () => {
+        it('should decrease durability by 5 if enhancement < 15', () => {
+            const item = {
+                enhancement: 14,
+                durability: 80
+            }
+            
+            const expected = {
+                enhancement: 14,
+                durability: 75,
+            }
+
+            const failed = fail(item)
+            expect(failed).toEqual(expected);
+        })
+    })
 })
