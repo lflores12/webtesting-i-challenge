@@ -31,5 +31,35 @@ describe('enhancer.js', () => {
             const failed = fail(item)
             expect(failed).toEqual(expected);
         })
+
+        it('should decrease durability by 10 if enhancement = 15', () => {
+            const item = {
+                enhancement: 15,
+                durability: 80
+            }
+            
+            const expected = {
+                enhancement: 15,
+                durability: 70,
+            }
+
+            const failed = fail(item)
+            expect(failed).toEqual(expected);
+        })
+
+        it('should decrease durability by 10 and decrease enhancement by 1 if enhancement > 16', () => {
+            const item = {
+                enhancement: 16,
+                durability: 80
+            }
+            
+            const expected = {
+                enhancement: 15,
+                durability: 70,
+            }
+
+            const failed = fail(item)
+            expect(failed).toEqual(expected);
+        })
     })
 })
